@@ -1,14 +1,14 @@
 <template>
   <div class="wrapper">
-    <p> Usuario guardado en la tienda = {{ $store.state.firstName }} {{ $store.state.lastName }}</p>
-    <p>{{ $store.getters.fullName }}</p>
+    <p> Usuario guardado en la tienda = {{ $store.state['user/firstName'] }} {{ $store.state['user/lastName'] }}</p>
+    <p>{{ $store.getters['user/fullName']}}</p>
     <div v-for="airport in airports" :key="airport.abbreviation">
       <button @click="addFvorites(airport)">Add favorite</button>
       <airport-card :airport="airport" />
     </div>
     <div>
-      <h2 v-if="$store.state.favorites.length">Favorites</h2>
-      <div v-for="airport in $store.state.favorites" :key="airport.abbreviation">
+      <h2 v-if="$store.state.airports.favorites.length">Favorites</h2>
+      <div v-for="airport in $store.state.airports.favorites" :key="airport.abbreviation">
         <airport-card :airport="airport" />
       </div>
     </div>
