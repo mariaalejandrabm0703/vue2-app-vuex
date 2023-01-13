@@ -9,6 +9,9 @@ export default new Vuex.Store({
     lastName: 'Doe'
   },
   getters: {
+    fullName: function (state) {
+      return `${state.firstName} ${state.lastName}`
+    }
   },
   mutations: {
   },
