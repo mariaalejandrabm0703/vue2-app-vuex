@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <p> Usuario guardado en la tienda = {{ $store.state.firstName }} {{ $store.state.lastName }}</p>
     <div v-for="airport in airports" :key="airport.abbreviation">
       <airport-card :airport="airport" />
     </div>
