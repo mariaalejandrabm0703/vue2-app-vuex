@@ -3,7 +3,11 @@
     <p> Usuario guardado en la tienda = {{ $store.state.firstName }} {{ $store.state.lastName }}</p>
     <p>{{ $store.getters.fullName }}</p>
     <div v-for="airport in airports" :key="airport.abbreviation">
-      <airport-card :airport="airport" />
+      <airport-card :airport="airport" @click="$store.dispatch('addToFavorites', airport)" />
+    </div>
+    <h2 v-if="$store.state.favorites.length">Favorites</h2>
+    <div v-for="airport in $store.state.favorites" :key="airport.abbreviation">
+      <airport-card :airport="airport"  />
     </div>
   </div>
 </template>
