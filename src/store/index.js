@@ -15,16 +15,15 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    UPDATE_FAVORITES(state, payload) {
+    UPDATE_FAVORITES: function (state, payload){
       state.favorites = payload
     }
   },
   actions: {
-    addToFavorites(context, payload) {
-      console.log('llega aqui')
+    addToFavorites: function (context, payload) {
       const favorites = context.state.favorites
       favorites.push(payload)
-      context.commit('UPDATE_FAVORITES', payload)
+      context.commit('UPDATE_FAVORITES', favorites)
     }
   },
   modules: {
